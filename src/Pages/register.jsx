@@ -40,7 +40,7 @@ const Register = () => {
         />
 
         <button type="submit">Register</button>
-        <Link to="/home" className="register-link">
+        <Link to="/login" className="register-link">
           Already have an account?
         </Link>
       </form>

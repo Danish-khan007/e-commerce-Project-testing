@@ -9,6 +9,10 @@ import Services from "./Pages/services";
 
 const router = createBrowserRouter([
     {
+        path: "",
+        element: <Login />,
+    },
+    {
         path: "/home",
         element: (
             <>

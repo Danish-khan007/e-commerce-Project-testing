@@ -1,8 +1,8 @@
 
 import { useState } from "react"
-import tShirt      from "../assets/t-shirt.jpg"
-import jeans       from "../assets/jeans.jpg"
-import jacket      from "../assets/jacket.jpg"
+import tShirt      from "../assets/products/t-shirts/t-shirt.jpg"
+import jeans       from "../assets/products/pents/jeans.jpg"
+import jacket      from "../assets/products/t-shirts/jacket.jpg"
 import tShirts1    from "../assets/products/t-shirts/1.jpg"
 import tShirts2    from "../assets/products/t-shirts/2.jpg"
 import tShirts3    from "../assets/products/t-shirts/3.jpg"
@@ -48,7 +48,7 @@ const Home = () => {
     const products = [
         { id: 1,  name: "T-Shirt", price: 499, image: tShirt,     category: "T-Shirts"   },
         { id: 2,  name: "Jeans",   price: 999, image: jeans,      category: "Pants"      },
-        { id: 3,  name: "Jacket",  price: 699, image: jacket,     category: "Shoes"      },
+        { id: 3,  name: "Jacket",  price: 699, image: jacket,     category: "T-Shirts"   },
         { id: 4,  name: "1",       price: 242, image: tShirts1,   category: "T-Shirts"   },
         { id: 5,  name: "2",       price: 422, image: tShirts2,   category: "T-Shirts"   },
         { id: 6,  name: "3",       price: 345, image: tShirts3,   category: "T-Shirts"   },

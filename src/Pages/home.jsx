@@ -47,8 +47,8 @@ const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const products = [
         { id: 1,  name: "T-Shirt", price: 499, image: tShirt,     category: "T-Shirts"   },
-        { id: 2,  name: "Jeans",   price: 999, image: jeans,      category: "pents"      },
-        { id: 3,  name: "Jacket",  price: 699, image: jacket,     category: "shoes"      },
+        { id: 2,  name: "Jeans",   price: 999, image: jeans,      category: "Pants"      },
+        { id: 3,  name: "Jacket",  price: 699, image: jacket,     category: "Shoes"      },
         { id: 4,  name: "1",       price: 242, image: tShirts1,   category: "T-Shirts"   },
         { id: 5,  name: "2",       price: 422, image: tShirts2,   category: "T-Shirts"   },
         { id: 6,  name: "3",       price: 345, image: tShirts3,   category: "T-Shirts"   },

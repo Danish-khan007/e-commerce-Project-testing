@@ -70,9 +70,7 @@ a[aria-current="page"] {
 }
 
 
-/* --------------------------------Login----------------------- */
-
-.login-page {
+--------------------------------Login----------------------- .login-page {
   min-height: calc(100vh - 70px);
   display: grid;
   place-items: center;
@@ -264,7 +262,7 @@ h1 {
 
 .owner-card:hover {
   transform: translateY(-8px);
-  border-color:2px solid #84357d;
+  border-color: 2px solid #84357d;
   box-shadow: 0 20px 36px #822f7830;
 }
 
@@ -489,7 +487,7 @@ h1 {
   height: 220px;
   object-fit: contain;
   display: block;
-  transform: translateY(8px) scale(1.03) ;
+  transform: translateY(8px) scale(1.03);
   box-shadow: 0 8px 20px #0002;
 
 }

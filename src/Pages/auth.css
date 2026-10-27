@@ -1,0 +1,422 @@
+/* Auth page styles based on the supplied style.css. Selectors are scoped so
+   the login/register design does not change the rest of the store. */
+.auth-page {
+  --bg: #e6e9ef;
+  --shadow-light: #ffffff;
+  --shadow-dark: #b8bcc4;
+  --text-main: #2d3142;
+  --text-sub: #8a8f9c;
+  --accent: #3b82f6;
+  --accent-dark: #2563eb;
+  --radius: 20px;
+
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  color: var(--text-main);
+}
+
+.auth-page,
+.auth-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* FLOATING BACKGROUND CIRCLES */
+.auth-page .bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 20px 20px 60px var(--shadow-dark), -20px -20px 60px var(--shadow-light);
+  animation: auth-float 6s ease-in-out infinite;
+}
+
+.auth-page .circle-1 {
+  width: 160px;
+  height: 160px;
+  top: 12%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.auth-page .circle-2 {
+  width: 90px;
+  height: 90px;
+  top: 28%;
+  right: 14%;
+  animation-delay: 1.5s;
+}
+
+.auth-page .circle-3 {
+  width: 60px;
+  height: 60px;
+  bottom: 15%;
+  right: 20%;
+  animation-delay: 0.8s;
+}
+
+.auth-page .circle-4 {
+  width: 200px;
+  height: 200px;
+  bottom: 8%;
+  left: 6%;
+  animation-delay: 2.2s;
+}
+
+@keyframes auth-float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* CARD */
+.auth-page .scene {
+  perspective: 1800px;
+  width: 380px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-page .card {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.auth-page .card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 620px;
+  backface-visibility: hidden;
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.auth-page .card-front {
+  transform: rotateY(0deg);
+}
+
+/* HEADER */
+.auth-page .icon-circle {
+  width: 70px;
+  height: 70px;
+  flex: 0 0 70px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.auth-page .icon-circle i {
+  font-size: 26px;
+  color: var(--accent);
+}
+
+.auth-page .icon-circle svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.auth-page h1 {
+  font-size: 24px;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.auth-page .subtitle {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 28px;
+}
+
+/* FORM */
+.auth-page .auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-page .input-group {
+  position: relative;
+  width: 100%;
+}
+
+.auth-page .input-group input {
+  width: 100%;
+  padding: 14px 42px 14px 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--bg);
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  font-size: 14px;
+  color: var(--text-main);
+  outline: none;
+  transition: box-shadow 0.25s ease;
+}
+
+.auth-page .input-group input:focus {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light), 0 0 0 2px var(--accent);
+}
+
+.auth-page .input-group label {
+  position: absolute;
+  left: 16px;
+  top: 15px;
+  font-size: 14px;
+  color: var(--text-sub);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.auth-page .input-group input:focus+label,
+.auth-page .input-group input:not(:placeholder-shown)+label {
+  top: -9px;
+  left: 12px;
+  font-size: 11px;
+  padding: 0 6px;
+  background: var(--bg);
+  color: var(--accent);
+  border-radius: 6px;
+}
+
+.auth-page .toggle-eye {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  color: var(--text-sub);
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.auth-page .toggle-eye svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.auth-page button.toggle-eye {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.auth-page .toggle-eye:hover {
+  color: var(--accent);
+}
+
+/* REMEMBER / FORGOT */
+.auth-page .form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.auth-page .checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-sub);
+  cursor: pointer;
+}
+
+.auth-page .checkbox-wrap input {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.auth-page .link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-page .link:hover {
+  text-decoration: underline;
+}
+
+/* BUTTON */
+.auth-page .btn-primary {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.auth-page .btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  box-shadow: 4px 4px 10px var(--shadow-dark), -4px -4px 10px var(--shadow-light);
+}
+
+.auth-page .btn-primary:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+}
+
+/* SWITCH BETWEEN ROUTES */
+.auth-page .switch-text {
+  margin-top: 22px;
+  font-size: 13px;
+  color: var(--text-sub);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-page .switch-btn {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg);
+  color: var(--accent);
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.auth-page .switch-btn:hover {
+  box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+}
+
+.auth-page .switch-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* SOCIAL LINKS */
+.auth-page .socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.auth-page .social-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text-sub);
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.auth-page .social-circle:hover {
+  color: var(--accent);
+  box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+}
+
+.auth-page .social-circle svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* TOAST */
+.auth-page .toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--text-main);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.auth-page .toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 420px) {
+  .auth-page .scene {
+    width: 92vw;
+  }
+
+  .auth-page .card-face {
+    padding: 32px 22px;
+  }
+}
+
+.auth-page .card.is-flipping {
+  transform: rotateY(180deg);
+}
+
+.auth-page .card.is-entering {
+  animation: auth-card-enter 0.8s cubic-bezier(0.4, 0.2, 0.2, 1) both;
+}
+
+@keyframes auth-card-enter {
+  from {
+    transform: rotateY(-180deg);
+  }
+
+  to {
+    transform: rotateY(0deg);
+  }
+}
